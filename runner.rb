@@ -50,6 +50,8 @@ elsif input_option == "4"
   client_params[:ingredients] = gets.chomp
   print "Directions (#{recipe["directions"]}): "
   client_params[:directions] = gets.chomp
+  print "Prep time (#{recipe["prep_time"]}): "
+  client_params[:prep_time] = gets.chomp
   client_params.delete_if {|key, value| value.empty?}
   response = Unirest.patch("http://localhost:3000/recipes/#{input_id}",
                           parameters: client_params
